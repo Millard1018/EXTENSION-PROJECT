@@ -1517,9 +1517,6 @@
   .mask-\[url\(\.\.\/resources\/x-mark\.svg\)\] {
     mask-image: url(../resources/x-mark.svg);
   }
-  .bg-cover {
-    background-size: cover;
-  }
   .mask-contain {
     mask-size: contain;
   }
@@ -1872,14 +1869,8 @@
   .opacity-0 {
     opacity: 0%;
   }
-  .opacity-5 {
-    opacity: 5%;
-  }
   .opacity-30 {
     opacity: 30%;
-  }
-  .opacity-50 {
-    opacity: 50%;
   }
   .opacity-60 {
     opacity: 60%;
