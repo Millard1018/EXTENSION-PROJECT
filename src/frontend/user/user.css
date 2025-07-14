@@ -264,14 +264,23 @@
   .-top-\[0\.1vh\] {
     top: calc(0.1vh * -1);
   }
+  .-top-\[0\.5vh\] {
+    top: calc(0.5vh * -1);
+  }
   .-top-\[1vh\] {
     top: calc(1vh * -1);
+  }
+  .-top-\[2vh\] {
+    top: calc(2vh * -1);
   }
   .-top-\[5vh\] {
     top: calc(5vh * -1);
   }
   .-top-\[6vh\] {
     top: calc(6vh * -1);
+  }
+  .-top-\[10vh\] {
+    top: calc(10vh * -1);
   }
   .top-0 {
     top: calc(var(--spacing) * 0);
@@ -299,6 +308,15 @@
   }
   .top-20 {
     top: calc(var(--spacing) * 20);
+  }
+  .top-\[1\] {
+    top: 1;
+  }
+  .top-\[1vh\] {
+    top: 1vh;
+  }
+  .top-\[2vh\] {
+    top: 2vh;
   }
   .top-\[3\.5vh\] {
     top: 3.5vh;
@@ -468,6 +486,9 @@
   .m-1 {
     margin: calc(var(--spacing) * 1);
   }
+  .m-2 {
+    margin: calc(var(--spacing) * 2);
+  }
   .mx-\[3vw\] {
     margin-inline: 3vw;
   }
@@ -602,6 +623,9 @@
   }
   .mb-\[1vh\] {
     margin-bottom: 1vh;
+  }
+  .mb-\[2vh\] {
+    margin-bottom: 2vh;
   }
   .mb-\[3vh\] {
     margin-bottom: 3vh;
@@ -3325,6 +3349,11 @@
   .lg\:mr-\[9vw\] {
     @media (width >= 64rem) {
       margin-right: 9vw;
+    }
+  }
+  .lg\:mb-0 {
+    @media (width >= 64rem) {
+      margin-bottom: calc(var(--spacing) * 0);
     }
   }
   .lg\:ml-1 {
