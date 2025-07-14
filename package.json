@@ -3,7 +3,7 @@
     "dev:user": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/frontend/input.css -o ./src/frontend/user/user.css  --content ./src/frontend/user/user.html --watch",
     "dev:admin": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/frontend/input.css -o ./src/frontend/admin/admin.css  --content ./src/frontend/admin/admin.html --watch",
     "dev:superadmin": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/frontend/input.css -o ./src/frontend/admin/superadmin.css  --content ./src/frontend/admin/superadmin.html --watch",
-    "dev:vite:user": "vite --config ./src/frontend/user/vite.config.js",
+    "dev:vite:user": "vite --host --config ./src/frontend/user/vite.config.js",
     "dev": "npm-run-all --parallel dev:user dev:admin dev:superadmin dev:vite:user"
   },
   "dependencies": {
