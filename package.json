@@ -6,12 +6,14 @@
     "dev:vite:user": "vite --host --config ./src/frontend/user/vite.config.js",
     "dev": "npm-run-all --parallel dev:user dev:admin dev:superadmin dev:vite:user",
     
+    "installDependecies": "npm install",
+
     "clean": "rimraf dist",
     "build:admin": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/frontend/input.css -o ./dist/admin.css --content ./src/frontend/admin/admin.html",
     "copy:html": "copyfiles -u 3 ./src/frontend/admin/admin.html ./dist/",
     "copy:admin-assets": "copyfiles -u 3 \"src/frontend/admin/**/*.{js,png,jpg,jpeg,svg,webp,ico,css,json}\" ./dist/",
     "copy:resources": "copyfiles -u 3 \"src/frontend/resources/**/*.{png,jpg,jpeg,svg,webp,ico,json}\" ./dist/",
-    "build": "npm-run-all clean build:admin copy:html copy:admin-assets copy:resources"
+    "build": "npm-run-all installDependecies build:admin copy:html copy:admin-assets copy:resources"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.7",
