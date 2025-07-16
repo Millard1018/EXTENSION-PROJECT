@@ -40,11 +40,6 @@ function filterStatus(chevron, chevronClass, statusType, statusClass) {
     document.getElementById(statusType).classList.toggle(statusClass);
 }
 
-function filterStatusIncoming() {
-    document.getElementById("chevronStatusIncoming").classList.toggle("rotate-180");
-    document.getElementById("giftStatusIncoming").classList.toggle("hidden");
-}
-
 function closeModal() {
     document.getElementById('recipientModal').classList.add('invisible', 'opacity-0');
     document.getElementById("Blur").classList.add("invisible");
