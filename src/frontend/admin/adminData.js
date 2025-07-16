@@ -235,7 +235,7 @@ function personalInfo(name, ID, birthday, address, contact, disability, status, 
     document.getElementById('modalBenefit').textContent = benefit;
     document.getElementById('modalDate').textContent = date;
     document.getElementById('modalType').textContent = type;
-    document.getElementById('modalAmount').textContent = "" + amount;
+    document.getElementById('modalAmount').textContent = "₱ " + amount;
 
     document.getElementById('modalConfirm').textContent = name + " ?";
 
