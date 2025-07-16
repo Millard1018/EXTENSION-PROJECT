@@ -5,9 +5,7 @@
     "dev:superadmin": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/frontend/input.css -o ./src/frontend/admin/superadmin.css  --content ./src/frontend/admin/superadmin.html --watch",
     "dev:vite:user": "vite --host --config ./src/frontend/user/vite.config.js",
     "dev": "npm-run-all --parallel dev:user dev:admin dev:superadmin dev:vite:user",
-    
     "installDependecies": "npm install",
-
     "clean": "rimraf dist",
     "build:admin": "npx @tailwindcss/cli -c tailwind.config.js -i ./src/frontend/input.css -o ./dist/admin.css --content ./src/frontend/admin/admin.html",
     "copy:html": "copyfiles -u 3 ./src/frontend/admin/admin.html ./dist/",
