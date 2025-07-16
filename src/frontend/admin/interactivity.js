@@ -26,41 +26,18 @@ function hidenavMenu(){
     document.getElementById("navMenu").classList.add("invisible");
 }
 
-function toggleFilterLatest() {
-    document.getElementById("filterLatest").classList.toggle("invisible");
+function toggleFilter(filter, changeClass) {
+    document.getElementById(filter).classList.toggle(changeClass);
 }
 
-function filterBenefitLatest() {
-    document.getElementById("chevronBenefitLatest").classList.toggle("rotate-180");
-    document.getElementById("benefitTypeLatest").classList.toggle("hidden");
+function filterBenefit(chevron, chevronClass, benefitType, benefitClass) {
+    document.getElementById(chevron).classList.toggle(chevronClass);
+    document.getElementById(benefitType).classList.toggle(benefitClass);
 }
 
-function filterStatusLatest() {
-    document.getElementById("chevronStatusLatest").classList.toggle("rotate-180");
-    document.getElementById("giftStatusLatest").classList.toggle("hidden");
-}
-
-function toggleFilterPrev() {
-    document.getElementById("filterPrev").classList.toggle("invisible");
-}
-
-function filterBenefitPrev() {
-    document.getElementById("chevronBenefitPrev").classList.toggle("rotate-180");
-    document.getElementById("benefitTypePrev").classList.toggle("hidden");
-}
-
-function filterStatusPrev() {
-    document.getElementById("chevronStatusPrev").classList.toggle("rotate-180");
-    document.getElementById("giftStatusPrev").classList.toggle("hidden");
-}
-
-function toggleFilterIncoming() {
-    document.getElementById("filterIncoming").classList.toggle("invisible");
-}
-
-function filterBenefitIncoming() {
-    document.getElementById("chevronBenefitIncoming").classList.toggle("rotate-180");
-    document.getElementById("benefitTypeIncoming").classList.toggle("hidden");
+function filterStatus(chevron, chevronClass, statusType, statusClass) {
+    document.getElementById(chevron).classList.toggle(chevronClass);
+    document.getElementById(statusType).classList.toggle(statusClass);
 }
 
 function filterStatusIncoming() {
@@ -84,17 +61,6 @@ const monthNames = [
     const monthIndex = parseInt(month, 10) - 1;
     document.getElementById('month').textContent = monthNames[monthIndex];
     document.getElementById('year').textContent = year;
-    
-    const monthYear = monthNames[monthIndex] + ' ' + year;
-    const rows = document.querySelectorAll("#accountHistory tbody tr");
-
-    rows.forEach(row=> {
-        if (row.getAttribute("data-date") === monthYear){
-            row.classList.add("bg-slate-500/50")
-        } else {
-            row.classList.remove("bg-slate-500/50");
-      }
-    });
 
 });
 
@@ -106,7 +72,7 @@ function highlight(status) {
     },10000);   
 }
 
-function confirmationBox() {
+function confirmationBox() { 
     document.getElementById("confirmationBlur").classList.remove("invisible");
     document.getElementById("shadow").classList.remove("invisible");
     document.getElementById("box").classList.remove("invisible");
@@ -130,13 +96,13 @@ let selectedBenefitIncoming = ""
 document.addEventListener("DOMContentLoaded", function () {
     const nameInputLatest = document.getElementById("searchNameLatest");
     const benefitSelectLatest = document.getElementById("benefitTypeLatest");
-    const statusSelectLatest = document.getElementById("giftStatusLatest");
+    const statusSelectLatest = document.getElementById("statusTypeLatest");
     const tableLatest = document.querySelector("#latestTable");
 
     const nameInputPrev = document.getElementById("searchNamePrev");
     const benefitSelectPrev = document.getElementById("benefitTypePrev");
     const dateSelect = document.getElementById("date");
-    const statusSelectPrev = document.getElementById("giftStatusPrev");
+    const statusSelectPrev = document.getElementById("statusTypePrev");
     const tablePrev = document.querySelector("#prevTable");
 
     const nameInputIncoming = document.getElementById("searchNameIncoming");
