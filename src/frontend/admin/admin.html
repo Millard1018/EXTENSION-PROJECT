@@ -265,13 +265,13 @@
                         <div class="flex space-x-[2vw] md:ml-0 ml-[2vw] md:mt-0">
                            <div class=" font-bold lg:text-[0.9em] xl:text-[1em]">
                                 <div class="flex font-bold relative z-40">
-                                    <div onclick="toggleFilterLatest()" class="hover:opacity-60 active:opacity-100 flex">
+                                    <div onclick="toggleFilter('filterLatest', 'invisible')" class="hover:opacity-60 active:opacity-100 flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                         <path fill-rule="evenodd" d="M3.792 2.938A49.069 49.069 0 0 1 12 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 0 1 1.541 1.836v1.044a3 3 0 0 1-.879 2.121l-6.182 6.182a1.5 1.5 0 0 0-.439 1.061v2.927a3 3 0 0 1-1.658 2.684l-1.757.878A.75.75 0 0 1 9.75 21v-5.818a1.5 1.5 0 0 0-.44-1.06L3.13 7.938a3 3 0 0 1-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836Z" clip-rule="evenodd" />
                                         </svg>Filter
                                     </div>
                                     <div id="filterLatest" class="invisible absolute top-[3.5vh] lg:-left-[2vw] md:-left-[5vw] xl:w-[12vw] lg:w-[14vw] sm:w-[20vw] flex flex-col bg-white rounded-2xl p-2">
-                                        <div onclick="filterBenefitLatest()" class="flex items-center"><span id="initialBenefitLatest"> Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronBenefitLatest" class="size-4 ml-auto">
+                                        <div onclick="filterBenefit('chevronBenefitLatest', 'rotate-180', 'benefitTypeLatest', 'hidden')" class="flex items-center"><span id="initialBenefitLatest"> Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronBenefitLatest" class="size-4 ml-auto">
                                             <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
@@ -286,12 +286,12 @@
                                             <div class="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" value="Christmas Benefit">Christmas Benefit</div>
                                             <div class="border p-0"></div>
                                         </div>
-                                        <div onclick="filterStatusLatest()" class="flex items-center"><span id="initialStatusLatest"> Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronStatusLatest" class="size-4 ml-auto">
+                                        <div onclick="filterStatus('chevronStatusLatest', 'rotate-180', 'statusTypeLatest', 'hidden')" class="flex items-center"><span id="initialStatusLatest"> Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronStatusLatest" class="size-4 ml-auto">
                                             <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                         <div class="border p-0"></div>
-                                        <div id="giftStatusLatest" class="hidden flex-col font-normal">
+                                        <div id="statusTypeLatest" class="hidden flex-col font-normal">
                                             <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950" value="">All Statuses</div>
                                             <div class="border p-0"></div>                                                
                                             <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950" value="Allowance Benefit">Available</div>
@@ -366,13 +366,13 @@
                             <div class="flex space-x-[2vw] md:ml-0 md:mt-0 mt-[2vh]">
                                 <div class="font-bold lg:text-[0.9em] xl:text-[1em]">
                                     <div class="flex font-bold relative z-40">
-                                        <div onclick="toggleFilterPrev()" class="hover:opacity-60 active:opacity-100 flex">
+                                        <div onclick="toggleFilter('filterPrev', 'invisible')" class="hover:opacity-60 active:opacity-100 flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                             <path fill-rule="evenodd" d="M3.792 2.938A49.069 49.069 0 0 1 12 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 0 1 1.541 1.836v1.044a3 3 0 0 1-.879 2.121l-6.182 6.182a1.5 1.5 0 0 0-.439 1.061v2.927a3 3 0 0 1-1.658 2.684l-1.757.878A.75.75 0 0 1 9.75 21v-5.818a1.5 1.5 0 0 0-.44-1.06L3.13 7.938a3 3 0 0 1-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836Z" clip-rule="evenodd" />
                                             </svg>Filter
                                         </div>
                                         <div id="filterPrev" class="invisible absolute top-[3.5vh] lg:-left-[2vw] md:-left-[5vw] xl:w-[12vw] lg:w-[14vw] sm:w-[20vw] flex flex-col bg-white rounded-2xl p-2">
-                                            <div onclick="filterBenefitPrev()" class="flex items-center"><span id="initialBenefitPrev"> Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronBenefitPrev" class="size-4 ml-auto">
+                                            <div onclick="filterBenefit('chevronBenefitPrev', 'rotate-180', 'benefitTypePrev', 'hidden')" class="flex items-center"><span id="initialBenefitPrev"> Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronBenefitPrev" class="size-4 ml-auto">
                                                 <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                                                 </svg>
                                             </div>
@@ -387,12 +387,12 @@
                                                 <div class="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" value="Christmas Benefit">Christmas Benefit</div>
                                                 <div class="border p-0"></div>
                                             </div>
-                                            <div onclick="filterStatusPrev()" class="flex items-center"><span id="initialStatusPrev"> Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronStatusPrev" class="size-4 ml-auto">
+                                            <div onclick="filterStatus('chevronStatusPrev', 'rotate-180', 'statusTypePrev', 'hidden')" class="flex items-center"><span id="initialStatusPrev"> Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronStatusPrev" class="size-4 ml-auto">
                                                 <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                                                 </svg>
                                             </div>
                                             <div class="border p-0"></div>
-                                            <div id="giftStatusPrev" class="hidden flex-col font-normal">
+                                            <div id="statusTypePrev" class="hidden flex-col font-normal">
                                                 <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950" value="">All Statuses</div>
                                                 <div class="border p-0"></div>
                                                 <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950" value="Allowance Benefit">Claimed</div>
@@ -466,13 +466,13 @@
                             <div class="flex space-x-[2vw] md:ml-0 ml-[2vw] md:mt-0">
                                 <div class=" font-bold lg:text-[0.9em] xl:text-[1em]">
                                     <div class="flex font-bold relative z-40">
-                                        <div onclick="toggleFilterIncoming()" class="hover:opacity-60 active:opacity-100 flex">
+                                        <div onclick="toggleFilter('filterIncoming', 'invisible')" class="hover:opacity-60 active:opacity-100 flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                                             <path fill-rule="evenodd" d="M3.792 2.938A49.069 49.069 0 0 1 12 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 0 1 1.541 1.836v1.044a3 3 0 0 1-.879 2.121l-6.182 6.182a1.5 1.5 0 0 0-.439 1.061v2.927a3 3 0 0 1-1.658 2.684l-1.757.878A.75.75 0 0 1 9.75 21v-5.818a1.5 1.5 0 0 0-.44-1.06L3.13 7.938a3 3 0 0 1-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836Z" clip-rule="evenodd" />
                                             </svg>Filter
                                         </div>
                                         <div id="filterIncoming" class="invisible absolute top-[3.5vh] lg:-left-[2vw] md:-left-[5vw] xl:w-[12vw] lg:w-[14vw] sm:w-[20vw] flex flex-col bg-white rounded-2xl p-2">
-                                        <div onclick="filterBenefitIncoming()" class="flex items-center"><span id="initialBenefitIncoming"> Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronBenefitIncoming" class="size-4 ml-auto">
+                                        <div onclick="filterBenefit('chevronBenefitIncoming', 'rotate-180', 'benefitTypeIncoming', 'hidden')" class="flex items-center"><span id="initialBenefitIncoming"> Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id="chevronBenefitIncoming" class="size-4 ml-auto">
                                             <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                                             </svg>
                                         </div>

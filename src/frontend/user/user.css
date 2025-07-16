@@ -1502,6 +1502,12 @@
   .\[mask-image\:url\(\'\/resources\/x-mark\.svg\'\)\] {
     mask-image: url('/resources/x-mark.svg');
   }
+  .\[mask-image\:url\(\'arrow-left-rectangle\.svg\'\)\] {
+    mask-image: url('arrow-left-rectangle.svg');
+  }
+  .\[mask-image\:url\(\'x-mark\.svg\'\)\] {
+    mask-image: url('x-mark.svg');
+  }
   .mask-\[url\(\'\.\.\/resources\/check\.svg\'\)\] {
     mask-image: url('../resources/check.svg');
   }
