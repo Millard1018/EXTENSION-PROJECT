@@ -16,7 +16,6 @@ function exitSettings(){
     document.getElementById("settings").classList.remove("flex");
 }
 
-
 function navMenu(){
     document.getElementById("navBlur").classList.remove("invisible");
     document.getElementById("navMenu").classList.remove("invisible");
@@ -24,20 +23,6 @@ function navMenu(){
 function hidenavMenu(){
     document.getElementById("navBlur").classList.add("invisible");
     document.getElementById("navMenu").classList.add("invisible");
-}
-
-function toggleFilter(filter, changeClass) {
-    document.getElementById(filter).classList.toggle(changeClass);
-}
-
-function filterBenefit(chevron, chevronClass, benefitType, benefitClass) {
-    document.getElementById(chevron).classList.toggle(chevronClass);
-    document.getElementById(benefitType).classList.toggle(benefitClass);
-}
-
-function filterStatus(chevron, chevronClass, statusType, statusClass) {
-    document.getElementById(chevron).classList.toggle(chevronClass);
-    document.getElementById(statusType).classList.toggle(statusClass);
 }
 
 function closeModal() {
@@ -78,6 +63,7 @@ function closeConfirmation() {
     document.getElementById("shadow").classList.add("invisible");
     document.getElementById("box").classList.add("invisible");
 }
+
 //global variables
 let selectedBenefitLatest = ""
 let selectedStatusLatest = ""
@@ -90,18 +76,18 @@ let selectedBenefitIncoming = ""
 //filters
 document.addEventListener("DOMContentLoaded", function () {
     const nameInputLatest = document.getElementById("searchNameLatest");
-    const benefitSelectLatest = document.getElementById("benefitTypeLatest");
-    const statusSelectLatest = document.getElementById("statusTypeLatest");
+    const benefitSelectLatest = document.getElementById("benefitLatest");
+    const statusSelectLatest = document.getElementById("statusLatest");
     const tableLatest = document.querySelector("#latestTable");
 
     const nameInputPrev = document.getElementById("searchNamePrev");
-    const benefitSelectPrev = document.getElementById("benefitTypePrev");
+    const benefitSelectPrev = document.getElementById("benefitPrev");
     const dateSelect = document.getElementById("date");
-    const statusSelectPrev = document.getElementById("statusTypePrev");
+    const statusSelectPrev = document.getElementById("statusPrev");
     const tablePrev = document.querySelector("#prevTable");
 
     const nameInputIncoming = document.getElementById("searchNameIncoming");
-    const benefitSelectIncoming = document.getElementById("benefitTypeIncoming");
+    const benefitSelectIncoming = document.getElementById("benefitIncoming");
     const tableIncoming = document.querySelector("#incomingTable");
 
     function normalizeText(text) {
@@ -110,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterTable(table, name, benefit, date, status) {
         const nameValue = normalizeText(name.value);
-        const benefitValue = normalizeText(/*benefit.value*/benefit);
+        const benefitValue = normalizeText(benefit);
 
         let dateValue = date ? normalizeText(date.value): "";
         if (dateValue != "") {
