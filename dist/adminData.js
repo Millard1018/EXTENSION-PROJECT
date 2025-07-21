@@ -1,6 +1,6 @@
 import {UserData} from './UserData.js';
 
-const latestBenefits = [
+const latestTableData = [
     new UserData("012345", "Juan Dela Cruz", "1018052004", "Birthday Benefit", "June 30, 2025", "Claimed", "January 18, 2005", "Kanluran, Santa Rosa", "0987-654-3210", "Mobility Impaired", "Centralized", "1000"),
     new UserData("012346", "Dwight Schrute", "1018052005", "Allowance Benefit", "June 30, 2025", "Available", "February 19, 2005", "Kanluran, Santa Rosa", "0987-654-3210", "Hearing Impaired", "Decentralized", "1000"),
     new UserData("012347", "Jim Halpert", "1018052006", "Christmas Benefit", "June 30, 2025", "Delayed", "March 20, 2000", "Kanluran, Santa Rosa", "0987-654-3210", "Visually Impaired", "Decentralized", "1000"),
@@ -24,7 +24,7 @@ const latestBenefits = [
     new UserData("012367", "Holly Flax", "1018052026", "Allowance Benefit", "June 30, 2025", "Claimed", "December 18, 1973", "Kanluran, Santa Rosa", "0915-232-2323", "Hearing Impaired", "Centralized", "1000")
 ]
 
-const prevBenefits = [
+const prevTableData = [
     new UserData("013001", "Michael Scott", "1018052101", "Birthday Benefit", "May 2025", "Claimed", "March 15, 1975", "Kanluran, Santa Rosa", "0917-123-4567", "Mobility Impaired", "Decentralized", "1000"),
     new UserData("013002", "Dwight Schrute", "1018052102", "Allowance Benefit", "April 2025", "Unclaimed", "January 20, 1970", "Kanluran, Santa Rosa", "0918-111-2233", "Hearing Impaired", "Decentralized", "1000"),
     new UserData("013003", "Jim Halpert", "1018052103", "Christmas Benefit", "March 2025", "Claimed", "October 1, 1978", "Kanluran, Santa Rosa", "0919-222-3344", "Visually Impaired", "Centralized", "1000"),
@@ -79,7 +79,7 @@ const prevBenefits = [
     new UserData("013052", "Erin Hannon", "1018052152", "Birthday Benefit", "April 2025", "Unclaimed", "April 1, 1986", "Kanluran, Santa Rosa", "0934-222-3333", "Mobility Impaired", "Decentralized", "1000")
 ]
 
-const incomingBenefits = [
+const incomingTableData = [
     new UserData("012345", "Juan Dela Cruz", "1018052004", "Birthday Benefit", "July 30, 2025", "Unavailable", "January 18, 2005", "Kanluran, Santa Rosa", "0987-654-3210", "Mobility Impaired", "Centralized", "1000"),
     new UserData("012346", "Dwight Schrute", "1018052005", "Allowance Benefit", "July 30, 2025", "Unavailable", "February 19, 2005", "Kanluran, Santa Rosa", "0987-654-3210", "Hearing Impaired", "Centralized", "1000"),
     new UserData("012347", "Jim Halpert", "1018052006", "Christmas Benefit", "July 30, 2025", "Unavailable", "March 20, 2000", "Kanluran, Santa Rosa", "0987-654-3210", "Visually Impaired", "Decentralized", "1000"),
@@ -108,6 +108,98 @@ let delayed = 0;
 let unavailable = 0;
 let available = 0;
 
+const previousFilter =  document.querySelector("#parentDivPrev")
+const latestFilter =  document.querySelector("#parentDivLatest")
+const incomingFilter =  document.querySelector("#parentDivIncoming")
+
+function statusHelper(statusType, clickedStatus, initialStatus, chevronStatus) {
+    if(statusType === "statusLatest") {
+        return `<div id=${clickedStatus} class="flex items-center"><span id=${initialStatus}> Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id=${chevronStatus} class="size-4 ml-auto">
+                            <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="border p-0"></div>
+                        <div id=${statusType} class="hidden flex-col font-normal">
+                            <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950" value="">All Statuses</div>
+                            <div class="border p-0"></div>
+                            <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950">Available</div>
+                            <div class="border p-0"></div>
+                            <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950">Claimed</div>
+                            <div class="border p-0"></div>
+                            <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950">Delayed</div>
+                            <div class="border p-0"></div>
+                        </div>`
+    }
+    if(statusType === "statusPrev") {
+        return `<div id=${clickedStatus} class="flex items-center"><span id=${initialStatus}> Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id=${chevronStatus} class="size-4 ml-auto">
+                            <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="border p-0"></div>
+                        <div id=${statusType} class="hidden flex-col font-normal">
+                            <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950">All Statuses</div>
+                            <div class="border p-0"></div>
+                            <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950">Claimed</div>
+                            <div class="border p-0"></div>
+                            <div class="status hover:bg-slate-900 hover:text-white active:bg-blue-950">Unclaimed</div>
+                            <div class="border p-0"></div>
+                        </div>`
+    }
+    if(!statusType) {
+        return ""
+    }
+}
+
+function filters(filterType, clickedFilter, filter, clickedBenefit, chevronBenefit, initialBenefit, benefitType, clickedStatus, chevronStatus, initialStatus, statusType) {
+    const div = document.createElement("div");
+    div.className = "flex font-bold relative z-40";
+    div.innerHTML = `<div id=${clickedFilter} class="hover:opacity-60 active:opacity-100 flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M3.792 2.938A49.069 49.069 0 0 1 12 2.25c2.797 0 5.54.236 8.209.688a1.857 1.857 0 0 1 1.541 1.836v1.044a3 3 0 0 1-.879 2.121l-6.182 6.182a1.5 1.5 0 0 0-.439 1.061v2.927a3 3 0 0 1-1.658 2.684l-1.757.878A.75.75 0 0 1 9.75 21v-5.818a1.5 1.5 0 0 0-.44-1.06L3.13 7.938a3 3 0 0 1-.879-2.121V4.774c0-.897.64-1.683 1.542-1.836Z" clip-rule="evenodd" />
+                        </svg>Filter
+                    </div>
+                    <div id=${filter} class="invisible absolute top-[3.5vh] lg:-left-[2vw] md:-left-[5vw] xl:w-[12vw] lg:w-[14vw] sm:w-[20vw] flex flex-col bg-white rounded-2xl p-2">
+                        <div id=${clickedBenefit} class="flex items-center"><span id=${initialBenefit}>Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" id=${chevronBenefit} class="size-4 ml-auto">
+                            <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="border p-0"></div>
+                        <div id=${benefitType} class="hidden flex-col font-normal">
+                            <div class="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" value="">All Benefits</div>
+                            <div class="border p-0"></div>
+                            <div class="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" value="Allowance Benefit">Allowance Benefit</div>
+                            <div class="border p-0"></div>
+                            <div class="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" value="Birthday Benefit">Birthday Benefit</div>
+                            <div class="border p-0"></div>
+                            <div class="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" value="Christmas Benefit">Christmas Benefit</div>
+                            <div class="border p-0"></div>
+                        </div>
+                        ${statusHelper(statusType, clickedStatus, initialStatus, chevronStatus)}
+                    </div>`;
+
+    filterType.appendChild(div);
+
+    document.getElementById(clickedFilter).addEventListener("click", function() {
+        document.getElementById(filter).classList.toggle("invisible");
+    });
+
+    document.getElementById(clickedBenefit).addEventListener("click", function() {
+        document.getElementById(chevronBenefit).classList.toggle("rotate-180");
+        document.getElementById(benefitType).classList.toggle("hidden");
+    });
+
+    if(statusType) {
+        document.getElementById(clickedStatus).addEventListener("click", function() {
+        document.getElementById(chevronStatus).classList.toggle("rotate-180");
+        document.getElementById(statusType).classList.toggle("hidden");
+        });
+    }
+    
+}
+
+filters(latestFilter, 'clickedFilterLatest' , 'filterLatest', 'clickedBenefitLatest', 'chevronBenefitLatest', 'initialBenefitLatest', 'benefitLatest', 'clickedStatusLatest', 'chevronStatusLatest', 'initialStatusLatest', 'statusLatest');
+filters(previousFilter, 'clickedFilterPrev' , 'filterPrev', 'clickedBenefitPrev', 'chevronBenefitPrev', 'initialBenefitPrev', 'benefitPrev', 'clickedStatusPrev', 'chevronStatusPrev', 'initialStatusPrev', 'statusPrev');
+filters(incomingFilter, 'clickedFilterIncoming' , 'filterIncoming', 'clickedBenefitIncoming', 'chevronBenefitIncoming', 'initialBenefitIncoming', 'benefitIncoming', null, null, null, null);
 
 function getStatusIcon(status) {
     if (status === "Claimed") {
@@ -208,9 +300,9 @@ function deleteData(tbody) {
     });
 }
 
-trData(latestBenefits, tbodyLatest);
-trData(prevBenefits, tbodyPrev);
-trData(incomingBenefits, tbodyIncoming);
+trData(latestTableData, tbodyLatest);
+trData(prevTableData, tbodyPrev);
+trData(incomingTableData, tbodyIncoming);
 
 document.getElementById("Unclaimed").textContent = unclaimed;
 document.getElementById("Unavailable").textContent = unavailable;
@@ -277,5 +369,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("Unclaimed").textContent = unclaimed;
         document.getElementById("Available").textContent = available;
     });
+
 });
     
